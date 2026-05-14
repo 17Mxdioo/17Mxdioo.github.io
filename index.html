@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>MxdioWork's</title>
+    <!-- Font figo da Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --dark-bg: #050505;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background a quadratini animato */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            mask-image: radial-gradient(circle, black, transparent 80%);
+        }
+
+        /* Contenitore principale */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Titolo Neon */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { opacity: 0.8; text-shadow: 0 0 10px var(--neon-blue); }
+            to { opacity: 1; text-shadow: 0 0 30px var(--neon-blue), 0 0 40px #00a2ff; }
+        }
+
+        /* Lista competenze */
+        .skills {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 3px solid var(--neon-blue);
+            background: rgba(0, 242, 255, 0.05);
+            backdrop-filter: blur(5px); /* Effetto Blur */
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideIn 0.8s forwards;
+        }
+
+        @keyframes slideIn {
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .skill-item:nth-child(1) { animation-delay: 0.2s; }
+        .skill-item:nth-child(2) { animation-delay: 0.4s; }
+        .skill-item:nth-child(3) { animation-delay: 0.6s; }
+        .skill-item:nth-child(4) { animation-delay: 0.8s; }
+
+        span.level { color: var(--neon-blue); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <div class="container">
+        <h1>MxdioWork's</h1>
+        
+        <ul class="skills">
+            <li class="skill-item">Java: <span class="level">Advanced Paper / Spigot</span></li>
+            <li class="skill-item">NMS: <span class="level">Medium</span></li>
+            <li class="skill-item">Kotlin: <span class="level">Low</span></li>
+            <li class="skill-item">HTTP: <span class="level">Advanced</span></li>
+        </ul>
+    </div>
+
+</body>
+</html>
